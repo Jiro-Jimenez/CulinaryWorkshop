@@ -9,20 +9,7 @@ $recipes = getAllRecipes();
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $recipe_id = $_GET['delete'];
     
-    // Delete recipe
-    $delete_sql = "DELETE FROM recipes WHERE recipe_id = ?";
-    $delete_stmt = $conn->prepare($delete_sql);
-    $delete_stmt->bind_param("i", $recipe_id);
-    
-    if ($delete_stmt->execute()) {
-        $success_message = "Recipe deleted successfully.";
-        // Refresh recipes list
-        $recipes = getAllRecipes();
-    } else {
-        $error_message = "Failed to delete recipe.";
-    }
-}
-?>
+   
 
 <!-- Page Header -->
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
